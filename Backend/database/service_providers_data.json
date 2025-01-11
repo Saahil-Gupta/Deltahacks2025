@@ -1,0 +1,114 @@
+[
+    {
+        "name": "John Doe",
+        "service": "Plumber",
+        "location": "Toronto",
+        "rating": 4.5,
+        "contact": "123-456-7890"
+    },
+    {
+        "name": "Sarah Lee",
+        "service": "Plumber",
+        "location": "Mississauga",
+        "rating": 4.6,
+        "contact": "234-567-8901"
+    },
+    {
+        "name": "Mark Wilson",
+        "service": "Plumber",
+        "location": "Brampton",
+        "rating": 4.4,
+        "contact": "345-678-9012"
+    },
+    {
+        "name": "Jane Smith",
+        "service": "Electrician",
+        "location": "Toronto",
+        "rating": 4.8,
+        "contact": "987-654-3210"
+    },
+    {
+        "name": "Liam Carter",
+        "service": "Electrician",
+        "location": "Hamilton",
+        "rating": 4.7,
+        "contact": "456-789-0123"
+    },
+    {
+        "name": "Emily Davis",
+        "service": "Electrician",
+        "location": "Vaughan",
+        "rating": 4.5,
+        "contact": "567-890-1234"
+    },
+    {
+        "name": "Alex Johnson",
+        "service": "Carpenter",
+        "location": "Burlington",
+        "rating": 4.3,
+        "contact": "555-666-7777"
+    },
+    {
+        "name": "Sophia Brown",
+        "service": "Carpenter",
+        "location": "Oakville",
+        "rating": 4.6,
+        "contact": "678-901-2345"
+    },
+    {
+        "name": "James White",
+        "service": "Carpenter",
+        "location": "Milton",
+        "rating": 4.2,
+        "contact": "789-012-3456"
+    },
+    {
+        "name": "Michael Brown",
+        "service": "Gardener",
+        "location": "Toronto",
+        "rating": 4.2,
+        "contact": "111-222-3333"
+    },
+    {
+        "name": "Olivia Miller",
+        "service": "Tutor",
+        "location": "Markham",
+        "rating": 4.9,
+        "contact": "444-555-6667"
+    },
+    {
+        "name": "Lucas Green",
+        "service": "Tutor",
+        "location": "Richmond Hill",
+        "rating": 4.8,
+        "contact": "890-123-4567"
+    },
+    {
+        "name": "Charlotte Anderson",
+        "service": "Pet Sitter",
+        "location": "Mississauga",
+        "rating": 4.8,
+        "contact": "666-777-8888"
+    },
+    {
+        "name": "Ethan Roberts",
+        "service": "Pet Sitter",
+        "location": "Brampton",
+        "rating": 4.7,
+        "contact": "123-789-4560"
+    },
+    {
+        "name": "Emma Thomas",
+        "service": "Painter",
+        "location": "Hamilton",
+        "rating": 4.9,
+        "contact": "567-678-5678"
+    },
+    {
+        "name": "Isabella Martinez",
+        "service": "Painter",
+        "location": "Oakville",
+        "rating": 4.7,
+        "contact": "678-678-1234"
+    }
+]
