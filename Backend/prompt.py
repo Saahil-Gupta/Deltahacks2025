@@ -1,10 +1,12 @@
 import os
+from cohere_file import co 
+from google.cloud import vision
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'Deltahacks2025/Backend/stoked-energy-447522-h9-283c4b94d4b9.json'
+# Set up Google Cloud credentials
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'Backend/stoked-energy-447522-h9-283c4b94d4b9.json'
 
 def detect_labels(path):
     """Detects labels in the file."""
-    from google.cloud import vision
 
     client = vision.ImageAnnotatorClient()
 
@@ -44,6 +46,18 @@ def create_cohere_prompt(labels, user_input):
     )
     return prompt
 
+def get_cohere_response(prompt):
+    """Sends a prompt to Cohere using an existing client instance and returns the response."""
+    try:
+        response = co.chat(
+            model="command-r-plus", 
+            messages=[{"role": "user", "content": prompt}]
+        )
+        return response.reply.strip()
+    except Exception as e:
+        print("An error occurred while calling Cohere:", e)
+        return None
+
 # Example usage
 path1 = 'image1.jpeg'
 path2 = 'image2.jpeg'
@@ -61,5 +75,12 @@ try:
 
     print("Prompt for photo1:", prompt1)
     print("Prompt for photo2:", prompt2)
+
+    # Get Cohere responses
+    response1 = get_cohere_response(prompt1)
+    response2 = get_cohere_response(prompt2)
+
+    print("Cohere response for photo1:", response1)
+    print("Cohere response for photo2:", response2)
 except Exception as e:
     print("An error occurred:", e)
