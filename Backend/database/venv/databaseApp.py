@@ -72,17 +72,13 @@ HTML_TEMPLATE =""" <!DOCTYPE html>
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
-
-        background {
-            background-color: #111111;
-        }
         
         body {
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #111111;
+            background-color: #f5f5f5;
             padding: 20px;
         }
 
@@ -426,19 +422,54 @@ def find_service_providers():
                 """
 
             # Display the results
+# Generate the response HTML
             response = f"""
-                <h1>Number of service providers: {len(providers)}</h1><br>
-                <h3>Quick Fix:</h3>
-                {fix_html}<br>
+                <link rel="stylesheet" href="\\static\\styles.css">
+                <div class="container">
+                    <div class="quick-fix-section">
+                        <h3>Quick Fix Suggestions</h3>
+                        {fix_html}
+                    </div>
+
+                    <h2 class="section-title">Available Service Providers ({len(providers)})</h2>
             """
+
+            # Generate service cards
             for idx, provider in enumerate(providers, start=1):
-                person_details = " | ".join(
-                    [f"<b>{field.capitalize()}:</b> {value}" for field, value in provider.items()]
-                )
-                response += f"Person {idx}: {person_details}<br>"
+                # Create a formatted string of provider details
+                details = []
+                for field, value in provider.items():
+                    if field not in ['_id']:  # Skip MongoDB ID field
+                        details.append(f"<b>{field.capitalize()}:</b> {value}")
+                person_details = " | ".join(details)
+                
+                # Convert the first part of details into a name (use service if name not available)
+                provider_name = provider.get('name', provider.get('service', 'Service Provider'))
+                
+                response += f"""
+                    <div class="service-card">
+                        <div class="profile-image">
+                            <img src="/api/placeholder/100/100" alt="Provider {idx} profile image"/>
+                        </div>
+                        <div class="provider-info">
+                            <h2 class="provider-name">{provider_name}</h2>
+                            <p class="provider-occupation">{provider['service']}</p>
+                            <div class="provider-details">
+                                {person_details}
+                            </div>
+                        </div>
+                        <div class="ratings">
+                            <p class="rating-label">Rating</p>
+                            <div class="stars" role="img" aria-label="4 out of 5 stars">
+                                ★★★★☆
+                            </div>
+                        </div>
+                    </div>
+                """
 
+            response += "</div>"  # Close container
             return response
-
+        
         except Exception as e:
             return f"<h2>An error occurred: {e}</h2>"
 
