@@ -31,4 +31,4 @@ def detect_labels(path):
 
 # print(detect_labels('photo1.jpg'))
 print("New!!!!!!!")
-print(detect_labels('photo2.jpg'))
+print(detect_labels('image2.jpg'))
