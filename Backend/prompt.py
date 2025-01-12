@@ -1,12 +1,16 @@
 import os
-from cohere_file import co 
-from google.cloud import vision
+import cohere
 
-# Set up Google Cloud credentials
+# Initialize the Cohere client using ClientV2
+
+co = cohere.ClientV2("FfzfGriLQELxRINyB2dBDsWxFgEetEeIu3fcjhbA")
+
+# Set up Google Cloud Vision credentials (Ensure the path is correct)
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'Backend/stoked-energy-447522-h9-283c4b94d4b9.json'
 
 def detect_labels(path):
-    """Detects labels in the file."""
+    """Detects labels in the file using Google Cloud Vision API."""
+    from google.cloud import vision
 
     client = vision.ImageAnnotatorClient()
 
@@ -22,14 +26,14 @@ def detect_labels(path):
 
     if response.error.message:
         raise Exception(
-            "{}\nFor more info on error messages, check: "
-            "https://cloud.google.com/apis/design/errors".format(response.error.message)
+            f"{response.error.message}\nFor more info on error messages, check: "
+            "https://cloud.google.com/apis/design/errors"
         )
 
     return detected_labels
 
 def create_cohere_prompt(labels, user_input):
-    """Creates a prompt for Cohere to classify the job based on image labels and user input."""
+    """Creates a structured prompt for Cohere to classify a job."""
     prompt = (
         "You are a helpful assistant tasked with categorizing a job request into one of the following categories: \n"
         "1. Plumber \n"
@@ -38,7 +42,6 @@ def create_cohere_prompt(labels, user_input):
         "4. Electrician \n"
         "0. Undecided \n"
         "\n"
-        "Given the following detected image labels and user input, determine the most appropriate category:\n"
         f"Detected Labels: {', '.join(labels)}\n"
         f"User Input: {user_input}\n"
         "\n"
@@ -46,41 +49,37 @@ def create_cohere_prompt(labels, user_input):
     )
     return prompt
 
-def get_cohere_response(prompt):
-    """Sends a prompt to Cohere using an existing client instance and returns the response."""
+def send_prompt_to_cohere(prompt):
+    """Sends the generated prompt to Cohere for classification."""
     try:
         response = co.chat(
-            model="command-r-plus", 
+            model="command-r-plus",  
             messages=[{"role": "user", "content": prompt}]
         )
-        return response.reply.strip()
-    except Exception as e:
-        print("An error occurred while calling Cohere:", e)
-        return None
 
-# Example usage
-path1 = 'image1.jpeg'
-path2 = 'image2.jpeg'
-user_text = "I need help fixing my kitchen sink and a leaky faucet."
+        # Extract and return the assistant's message correctly
+        if response.message and response.message.content:
+            return response.message.content[0].text.strip()
+        else:
+            raise Exception("No valid response received from Cohere.")
+    except Exception as e:
+        return f"An error occurred: {e}"
+
+# ✅ Example usage combining both functions
+path1 = 'Backend/image1.jpeg'
+user_text = input("Describe the problem in your own words: ")
 
 try:
+    # Step 1: Detect labels from the image using Google Cloud Vision
     labels1 = detect_labels(path1)
-    labels2 = detect_labels(path2)
-
     print("Labels for photo1:", labels1)
-    print("Labels for photo2:", labels2)
 
+    # Step 2: Create a structured prompt for Cohere
     prompt1 = create_cohere_prompt(labels1, user_text)
-    prompt2 = create_cohere_prompt(labels2, user_text)
 
-    print("Prompt for photo1:", prompt1)
-    print("Prompt for photo2:", prompt2)
+    # Step 3: Send the prompt to Cohere and get the classification
+    cohere_response = send_prompt_to_cohere(prompt1)
+    print("Cohere's Response:", cohere_response)
 
-    # Get Cohere responses
-    response1 = get_cohere_response(prompt1)
-    response2 = get_cohere_response(prompt2)
-
-    print("Cohere response for photo1:", response1)
-    print("Cohere response for photo2:", response2)
 except Exception as e:
     print("An error occurred:", e)
