@@ -65,7 +65,7 @@ HTML_TEMPLATE =""" <!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support Request</title>
     <style>
-        /* CSS Section */
+        /* General CSS */
         * {
             margin: 0;
             padding: 0;
@@ -75,16 +75,44 @@ HTML_TEMPLATE =""" <!DOCTYPE html>
         
         body {
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             background-color: #f5f5f5;
-            padding: 20px;
+            margin-top: 0px;
         }
 
+        /* Navbar Styles */
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2563eb;
+            padding: 10px 20px;
+            border-radius: 0px;
+            margin-top: 0px;
+            margin-bottom: 20px;
+        }
+
+        .header-nav select {
+            font-family: 'PT Serif', serif;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 6px;
+            border-radius: 4px;
+            border: 1px solid #fff;
+            color: #000;
+        }
+
+        .header-nav img {
+            width: auto;
+            height: 30px;
+            border-radius: 8px;
+            padding: 2px;
+        }
+
+        /* Form Container */
         .container {
             width: 100%;
             max-width: 600px;
+            margin: 0 auto;
         }
 
         .header {
@@ -153,31 +181,6 @@ HTML_TEMPLATE =""" <!DOCTYPE html>
             background: rgba(37, 99, 235, 0.02);
         }
 
-        .upload-area.dragover {
-            border-color: #2563eb;
-            background: rgba(37, 99, 235, 0.05);
-        }
-
-        input[type="file"] {
-            display: none;
-        }
-
-        .upload-icon {
-            color: #666;
-            font-size: 24px;
-            margin-bottom: 12px;
-        }
-
-        .upload-text {
-            color: #666;
-            margin-bottom: 8px;
-        }
-
-        .upload-hint {
-            color: #888;
-            font-size: 14px;
-        }
-
         .file-preview {
             display: none;
             margin-top: 16px;
@@ -191,36 +194,6 @@ HTML_TEMPLATE =""" <!DOCTYPE html>
             display: flex;
             align-items: center;
             gap: 12px;
-        }
-
-        .file-info {
-            flex-grow: 1;
-        }
-
-        .file-name {
-            color: #1a1a1a;
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-
-        .file-size {
-            color: #666;
-            font-size: 12px;
-        }
-
-        .remove-file {
-            color: #ef4444;
-            cursor: pointer;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            border: 1px solid #ef4444;
-            background: transparent;
-            transition: all 0.2s ease;
-        }
-
-        .remove-file:hover {
-            background: #fef2f2;
         }
 
         button[type="submit"] {
@@ -247,6 +220,23 @@ HTML_TEMPLATE =""" <!DOCTYPE html>
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <div class="header-nav">
+        <div class="location">
+            <select id="location-dropdown">
+                <option value="Hamilton, ON">Hamilton, ON</option>
+                <option value="Toronto, ON">Toronto, ON</option>
+                <option value="Brampton, ON">Brampton, ON</option>
+                <option value="Mississauga, ON">Mississauga, ON</option>
+                <option value="Kitchener, ON">Kitchener, ON</option>
+            </select>
+        </div>
+        <a href="index.html">
+        <img src="https://github.com/Saahil-Gupta/Deltahacks2025/blob/main/UI/Images/image.png?raw=true" alt="Logo"/>
+        </a>
+    </div>
+
+    <!-- Main Form -->
     <div class="container">
         <div class="header">
             <h1>Submit a Support Request</h1>
@@ -290,53 +280,9 @@ HTML_TEMPLATE =""" <!DOCTYPE html>
             <button type="submit" id="submitButton">Submit Request</button>
         </form>
     </div>
-
-    <script>
-        // JavaScript Section
-        const uploadArea = document.getElementById("uploadArea");
-        const fileInput = document.getElementById("image");
-        const filePreview = document.getElementById("filePreview");
-        const fileName = document.getElementById("fileName");
-        const fileSize = document.getElementById("fileSize");
-        const removeFileButton = document.getElementById("removeFileButton");
-        const submitButton = document.getElementById("submitButton");
-
-        uploadArea.addEventListener("click", () => fileInput.click());
-
-        fileInput.addEventListener("change", (e) => {
-            const file = e.target.files[0];
-            handleFile(file);
-        });
-
-        removeFileButton.addEventListener("click", () => {
-            filePreview.classList.remove("active");
-            fileInput.value = "";
-            submitButton.disabled = false;
-        });
-
-        function handleFile(file) {
-            if (file) {
-                const fileSizeInMB = (file.size / (1024 * 1024)).toFixed(2);
-                if (fileSizeInMB > 5) {
-                    alert("File size exceeds 5MB limit!");
-                    return;
-                }
-
-                fileName.textContent = file.name;
-                fileSize.textContent = `Size: ${fileSizeInMB} MB`;
-                filePreview.classList.add("active");
-
-                // Create a new DataTransfer object to simulate file input
-                const dataTransfer = new DataTransfer();
-                dataTransfer.items.add(file);
-
-                // Attach the file to the file input
-                fileInput.files = dataTransfer.files;
-            }
-        }
-    </script>
 </body>
-</html>"""
+</html>
+"""
 
 
 
@@ -449,7 +395,7 @@ def find_service_providers():
                 response += f"""
                     <div class="service-card">
                         <div class="profile-image">
-                            <img src="/api/placeholder/100/100" alt="Provider {idx} profile image"/>
+                            <img src="https://github.com/Saahil-Gupta/Deltahacks2025/blob/main/Backend/database/venv/blank-profile-picture-973460_1280.png?raw=true" alt="Provider {idx} profile image"/>
                         </div>
                         <div class="provider-info">
                             <h2 class="provider-name">{provider_name}</h2>
