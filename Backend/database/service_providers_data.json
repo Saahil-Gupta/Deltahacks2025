@@ -1,114 +1,32 @@
 [
-    {
-        "name": "John Doe",
-        "service": "Plumber",
-        "location": "Toronto",
-        "rating": 4.5,
-        "contact": "123-456-7890"
-    },
-    {
-        "name": "Sarah Lee",
-        "service": "Plumber",
-        "location": "Mississauga",
-        "rating": 4.6,
-        "contact": "234-567-8901"
-    },
-    {
-        "name": "Mark Wilson",
-        "service": "Plumber",
-        "location": "Brampton",
-        "rating": 4.4,
-        "contact": "345-678-9012"
-    },
-    {
-        "name": "Jane Smith",
-        "service": "Electrician",
-        "location": "Toronto",
-        "rating": 4.8,
-        "contact": "987-654-3210"
-    },
-    {
-        "name": "Liam Carter",
-        "service": "Electrician",
-        "location": "Hamilton",
-        "rating": 4.7,
-        "contact": "456-789-0123"
-    },
-    {
-        "name": "Emily Davis",
-        "service": "Electrician",
-        "location": "Vaughan",
-        "rating": 4.5,
-        "contact": "567-890-1234"
-    },
-    {
-        "name": "Alex Johnson",
-        "service": "Carpenter",
-        "location": "Burlington",
-        "rating": 4.3,
-        "contact": "555-666-7777"
-    },
-    {
-        "name": "Sophia Brown",
-        "service": "Carpenter",
-        "location": "Oakville",
-        "rating": 4.6,
-        "contact": "678-901-2345"
-    },
-    {
-        "name": "James White",
-        "service": "Carpenter",
-        "location": "Milton",
-        "rating": 4.2,
-        "contact": "789-012-3456"
-    },
-    {
-        "name": "Michael Brown",
-        "service": "Gardener",
-        "location": "Toronto",
-        "rating": 4.2,
-        "contact": "111-222-3333"
-    },
-    {
-        "name": "Olivia Miller",
-        "service": "Tutor",
-        "location": "Markham",
-        "rating": 4.9,
-        "contact": "444-555-6667"
-    },
-    {
-        "name": "Lucas Green",
-        "service": "Tutor",
-        "location": "Richmond Hill",
-        "rating": 4.8,
-        "contact": "890-123-4567"
-    },
-    {
-        "name": "Charlotte Anderson",
-        "service": "Pet Sitter",
-        "location": "Mississauga",
-        "rating": 4.8,
-        "contact": "666-777-8888"
-    },
-    {
-        "name": "Ethan Roberts",
-        "service": "Pet Sitter",
-        "location": "Brampton",
-        "rating": 4.7,
-        "contact": "123-789-4560"
-    },
-    {
-        "name": "Emma Thomas",
-        "service": "Painter",
-        "location": "Hamilton",
-        "rating": 4.9,
-        "contact": "567-678-5678"
-    },
-    {
-        "name": "Isabella Martinez",
-        "service": "Painter",
-        "location": "Oakville",
-        "rating": 4.7,
-        "contact": "678-678-1234"
-    }
-]
+    { "name": "John Doe", "service": "Plumber", "location": "Toronto", "rating": 4.5, "contact": "123-456-7890" },
+    { "name": "Sarah Lee", "service": "Plumber", "location": "Mississauga", "rating": 4.6, "contact": "234-567-8901" },
+    { "name": "Mark Wilson", "service": "Plumber", "location": "Brampton", "rating": 4.4, "contact": "345-678-9012" },
+    { "name": "Jane Smith", "service": "Electrician", "location": "Toronto", "rating": 4.8, "contact": "987-654-3210" },
+    { "name": "Liam Carter", "service": "Electrician", "location": "Hamilton", "rating": 4.7, "contact": "456-789-0123" },
+    { "name": "Emily Davis", "service": "Electrician", "location": "Vaughan", "rating": 4.5, "contact": "567-890-1234" },
+    { "name": "Alex Johnson", "service": "Carpenter", "location": "Burlington", "rating": 4.3, "contact": "555-666-7777" },
+    { "name": "Sophia Brown", "service": "Carpenter", "location": "Oakville", "rating": 4.6, "contact": "678-901-2345" },
+    { "name": "James White", "service": "Carpenter", "location": "Milton", "rating": 4.2, "contact": "789-012-3456" },
+    { "name": "Michael Brown", "service": "Mechanic", "location": "Toronto", "rating": 4.2, "contact": "111-222-3333" },
+    { "name": "Olivia Miller", "service": "Mechanic", "location": "Markham", "rating": 4.9, "contact": "444-555-6667" },
+    { "name": "Lucas Green", "service": "Plumber", "location": "Richmond Hill", "rating": 4.8, "contact": "890-123-4567" },
+    { "name": "Charlotte Anderson", "service": "Mechanic", "location": "Mississauga", "rating": 4.8, "contact": "666-777-8888" },
+    { "name": "Ethan Roberts", "service": "Carpenter", "location": "Brampton", "rating": 4.7, "contact": "123-789-4560" },
+    { "name": "Emma Thomas", "service": "Electrician", "location": "Hamilton", "rating": 4.9, "contact": "567-678-5678" },
+    { "name": "Isabella Martinez", "service": "Mechanic", "location": "Oakville", "rating": 4.7, "contact": "678-678-1234" },
+    { "name": "David Lee", "service": "Plumber", "location": "Scarborough", "rating": 3.8, "contact": "555-123-4567" }, 
+    { "name": "Anna Jones", "service": "Electrician", "location": "Mississauga", "rating": 2.9, "contact": "444-444-4444" },
+    { "name": "Daniel Kim", "service": "Carpenter", "location": "Vaughan", "rating": 3.5, "contact": "555-555-5555" }, 
+    { "name": "Paul Miller", "service": "Mechanic", "location": "Etobicoke", "rating": 2.7, "contact": "666-666-6666" }, 
+    { "name": "Mary Brown", "service": "Plumber", "location": "Brampton", "rating": 4.1, "contact": "777-777-7777" },
+    { "name": "Christopher Davis", "service": "Electrician", "location": "North York", "rating": 4.2, "contact": "888-888-8888" }, 
+    { "name": "Amanda Wilson", "service": "Carpenter", "location": "Markham", "rating": 3.9, "contact": "999-999-9999" },
+    { "name": "Charles Moore", "service": "Mechanic", "location": "Richmond Hill", "rating": 4.5, "contact": "111-111-1111" },
+    { "name": "Elizabeth Taylor", "service": "Plumber", "location": "Burlington", "rating": 3.2, "contact": "222-222-2222" },
+    { "name": "James Anderson", "service": "Electrician", "location": "Oakville", "rating": 4.8, "contact": "333-333-3333" },
+    { "name": "Barbara Lewis", "service": "Carpenter", "location": "Mississauga", "rating": 4.1, "contact": "444-444-4445" },
+    { "name": "Thomas Jackson", "service": "Mechanic", "location": "Toronto", "rating": 3.7, "contact": "555-555-5556" },
+    { "name": "Marie Robinson", "service": "Plumber", "location": "Vaughan", "rating": 4.3, "contact": "666-666-6667" },
+    { "name": "David White", "service": "Electrician", "location": "Brampton", "rating": 2.8, "contact": "777-777-7778" } 
+  ]
