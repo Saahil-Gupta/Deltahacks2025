@@ -7,19 +7,28 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Navigation Bar -->
-    <div class="header-nav">
-      <div class="location">
-        <select id="location-dropdown">
-          <option value="Hamilton, ON">Hamilton, ON</option>
-          <option value="Toronto, ON">Toronto, ON</option>
-          <option value="Brampton, ON">Brampton, ON</option>
-          <option value="Mississauga, ON">Mississauga, ON</option>
-          <option value="Kitchener, ON">Kitchener, ON</option>
-        </select>
-      </div>
-      <img src="https://github.com/Saahil-Gupta/Deltahacks2025/blob/main/UI/Images/image.png?raw=true">
-    </div>
+    <div id="navbar"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("navbar.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("navbar").innerHTML = html;
+
+        // Optional: Preserve selected location
+        const dropdown = document.querySelector("#location-dropdown");
+        const savedLocation = localStorage.getItem("selectedLocation");
+
+        if (dropdown && savedLocation) {
+          dropdown.value = savedLocation;
+        }
+
+        dropdown.addEventListener("change", () => {
+          localStorage.setItem("selectedLocation", dropdown.value);
+        });
+      });
+  });
+  </script>
 
     <!-- Rotating Background Images -->
     <section class="header">
@@ -35,7 +44,7 @@
           Get a transcript<br />
           for your coffee chat<br />No more notes.<br />No more fuss.<br /><br />
         </h1>
-        <a href="nextpage.html" class="hero-btn">Let's get started</a>
+        <a href="secondPage.html" class="hero-btn">Let's get started</a>
       </div>
     </section>
 
