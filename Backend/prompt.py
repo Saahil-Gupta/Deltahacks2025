@@ -1,6 +1,6 @@
 import os
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/Users/kabir/Desktop/Project/DeltaHacksix/First/Github/Deltahacks2025/Backend/stoked-energy-447522-h9-283c4b94d4b9.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'Deltahacks2025/Backend/stoked-energy-447522-h9-283c4b94d4b9.json'
 
 def detect_labels(path):
     """Detects labels in the file."""
