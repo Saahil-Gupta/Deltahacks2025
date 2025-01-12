@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auxi Helper</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("navbar.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("navbar").innerHTML = html;
+
+        // Optional: Preserve selected location
+        const dropdown = document.querySelector("#location-dropdown");
+        const savedLocation = localStorage.getItem("selectedLocation");
+
+        if (dropdown && savedLocation) {
+          dropdown.value = savedLocation;
+        }
+
+        dropdown.addEventListener("change", () => {
+          localStorage.setItem("selectedLocation", dropdown.value);
+        });
+      });
+  });
+  </script>
+
+    <!-- Rotating Background Images -->
+    <section class="header">
+      <div class="background-image active" style="background-image: url('https://github.com/Saahil-Gupta/Deltahacks2025/blob/main/Frontend/plumber.jpeg?raw=true');"></div>
+      <div class="background-image" style="background-image: url('https://raw.githubusercontent.com/Saahil-Gupta/Deltahacks2025/refs/heads/main/Frontend/carpenter.avif');"></div>
+      <div class="background-image" style="background-image: url('https://github.com/Saahil-Gupta/Deltahacks2025/blob/main/Frontend/electrician.jpg?raw=true');"></div>
+      <div class="background-image" style="background-image: url('https://github.com/Saahil-Gupta/Deltahacks2025/blob/main/Frontend/Mechanic.jpg?raw=true');"></div>
+
+      <!-- Text Overlay -->
+      <div class="text-box">
+        <h1>
+          Hassle-Free Repairs<br />
+          One Click Away!<br />
+        </h1>
+        <a href="secondPage.html" class="hero-btn">Get started</a>
+      </div>
+    </section>
+
+    <script src="index.js"></script>
+  </body>
+</html>
