@@ -129,6 +129,37 @@ body {
     font-size: 1.5rem;
 }
 
+
+    /* Navbar Styles */
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2563eb;
+    padding: 10px 30px;
+    border-radius: 0px;
+    margin-top: -40px;
+    margin-bottom: 20px;
+    scale: 1.08 1; 
+}
+
+.header-nav select {
+    font-family: 'PT Serif', serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    color: #000;
+}
+
+.header-nav img {
+    width: auto;
+    height: 30px;
+    border-radius: 8px;
+    padding: 2px;
+}
+
 @media (max-width: 600px) {
     body {
         padding: 1rem;
@@ -150,4 +181,5 @@ body {
         width: 80px;
         height: 80px;
     }
+
 }

@@ -368,9 +368,23 @@ def find_service_providers():
                 """
 
             # Display the results
-# Generate the response HTML
+            # Generate the response HTML
             response = f"""
                 <link rel="stylesheet" href="\\static\\styles.css">
+                <div class="header-nav">
+                    <div class="location">
+                        <select id="location-dropdown">
+                        <option value="Hamilton, ON">Hamilton, ON</option>
+                        <option value="Toronto, ON">Toronto, ON</option>
+                        <option value="Brampton, ON">Brampton, ON</option>
+                        <option value="Mississauga, ON">Mississauga, ON</option>
+                        <option value="Kitchener, ON">Kitchener, ON</option>
+                    </select>
+                    </div>
+                    <a href="index.html">
+                        <img src="https://github.com/Saahil-Gupta/Deltahacks2025/blob/main/UI/Images/image.png?raw=true" alt="Logo"/>
+                    </a>
+                </div>
                 <div class="container">
                     <div class="quick-fix-section">
                         <h3>Quick Fix Suggestions</h3>
@@ -402,12 +416,6 @@ def find_service_providers():
                             <p class="provider-occupation">{provider['service']}</p>
                             <div class="provider-details">
                                 {person_details}
-                            </div>
-                        </div>
-                        <div class="ratings">
-                            <p class="rating-label">Rating</p>
-                            <div class="stars" role="img" aria-label="4 out of 5 stars">
-                                ★★★★☆
                             </div>
                         </div>
                     </div>
